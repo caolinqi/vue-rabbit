@@ -4,6 +4,7 @@ import "./style.css";
 //测试接口函数
 import { getCategory } from "./apis/testAPI";
 import router from "./router";
+import "./styles/common.scss";
 import App from "./App.vue";
 
 getCategory().then((res) => {

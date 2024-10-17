@@ -7,6 +7,7 @@ const router = createRouter({
     {
       path: "/",
       component: () => import("@/views/Layout/index.vue"),
+      //默认二级路由直接path为空
       children: [
         { path: "", component: () => import("@/views/Home/index.vue") },
         {
