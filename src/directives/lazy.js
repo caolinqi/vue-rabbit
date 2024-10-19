@@ -1,3 +1,4 @@
+//检测目标元素的可见性。
 import { useIntersectionObserver } from "@vueuse/core";
 export const LazyPlugin = {
   install(app) {
@@ -16,6 +17,7 @@ export const LazyPlugin = {
           if (isIntersecting) {
             // 更新元素的src属性为指令的参数值
             el.src = binding.value;
+            // 当图片加载完成后停止观察
             stop();
           }
         });

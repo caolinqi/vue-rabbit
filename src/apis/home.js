@@ -19,3 +19,10 @@ export const getHotAPI = () => {
     url: "/home/hot",
   });
 };
+
+//全部分类(包含推荐商品)
+export const getStoreAPI = () => {
+  return httpInstance({
+    url: "/home/goods",
+  });
+};
