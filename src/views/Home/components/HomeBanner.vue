@@ -8,7 +8,7 @@
   </div>
 </template>
 <script setup>
-import { getbannerAPI } from "../../../apis/banner";
+import { getbannerAPI } from "../../../apis/home";
 import { onMounted, ref } from "vue";
 const bannerList = ref([]);
 const BannerAPI = async () => {
