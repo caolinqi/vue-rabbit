@@ -5,7 +5,11 @@
         <RouterLink to="/">小兔鲜</RouterLink>
       </h1>
       <ul class="app-header-nav">
-        <li class="home" v-for="item in navData" :key="item.id">
+        <li
+          class="home"
+          v-for="item in CategoryStore.categoryList"
+          :key="item.id"
+        >
           <RouterLink to="/">{{ item.name }}</RouterLink>
         </li>
       </ul>
@@ -18,19 +22,9 @@
   </header>
 </template>
 <script setup>
-import { onMounted, ref } from "vue";
-import { getCategoryAPI } from "../../../apis/layout";
-
-const navData = ref([]);
-const getCategory = async () => {
-  const res = await getCategoryAPI();
-  console.log(res);
-  navData.value = res.result;
-};
-
-onMounted(() => {
-  getCategory();
-});
+//使用pinia的数据
+import { useCategoryStore } from "../../../stores/CategoryStore";
+const CategoryStore = useCategoryStore();
 </script>
 
 <style scoped lang="scss">
