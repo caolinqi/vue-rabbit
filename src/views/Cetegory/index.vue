@@ -3,6 +3,7 @@ import { onMounted, ref, watch } from "vue";
 import { getCategoryIdAPI } from "../../apis/cetegory";
 import { getbannerAPI } from "../../apis/home";
 import { useRoute } from "vue-router";
+import GoodsItem from "../Home/components/GoodsItem.vue";
 
 // 获取路由对象实例，用于访问路由参数
 const route = useRoute();
@@ -49,6 +50,25 @@ watch(() => {
             <img :src="item.imgUrl" alt="" />
           </el-carousel-item>
         </el-carousel>
+      </div>
+      <div class="sub-list">
+        <h3>全部分类</h3>
+        <ul>
+          <li v-for="i in categoryId.children" :key="i.id">
+            <RouterLink to="/">
+              <img :src="i.picture" />
+              <p>{{ i.name }}</p>
+            </RouterLink>
+          </li>
+        </ul>
+      </div>
+      <div class="ref-goods" v-for="item in categoryId.children" :key="item.id">
+        <div class="head">
+          <h3>- {{ item.name }}-</h3>
+        </div>
+        <div class="body">
+          <GoodsItem v-for="good in item.goods" :goods="good" :key="good.id" />
+        </div>
       </div>
     </div>
   </div>
