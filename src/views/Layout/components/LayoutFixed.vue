@@ -10,7 +10,7 @@
           v-for="item in CategoryStore.categoryList"
           :key="item.id"
         >
-          <RouterLink :to="`/cetegory/:${item.id}`">{{ item.name }}</RouterLink>
+          <RouterLink :to="`/cetegory/${item.id}`">{{ item.name }}</RouterLink>
         </li>
       </ul>
 

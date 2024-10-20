@@ -1,8 +1,9 @@
 import httpInstance from "../utils/https";
 //轮播图api
-export const getbannerAPI = () => {
+export const getbannerAPI = (distributionSite = "1") => {
   return httpInstance({
     url: "/home/banner",
+    params: { distributionSite },
   });
 };
 
