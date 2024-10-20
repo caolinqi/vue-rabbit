@@ -17,9 +17,15 @@ const getCategoryIdData = async () => {
   const res = await getCategoryIdAPI({ id: route.params.id });
   categoryId.value = res.result;
 };
+// 定义一个响应式变量，用于存储 banner 列表数据
 const bannerList = ref([]);
+
+// 定义一个获取 banner 列表数据的异步函数
 const getBannerList = async () => {
+  // 调用 API 请求，传入参数 "2" 表示获取分类商品页的 banner 数据
   const res = await getbannerAPI("2");
+
+  // 将 API 返回的结果赋值给响应式变量 bannerList
   bannerList.value = res.result;
 };
 
